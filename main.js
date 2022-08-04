@@ -8,5 +8,13 @@ start()
 //Recieves the data from the message/ can name the parameter anything
 //creates html drop down from data
 function createBreedList(breedList) {
+   //Made a template literal to get breedlist info
+   document.getElementById("breed").innerHTML = `
+   <select>
+            <option>Choose a breed</option>
+           
+
+        </select>
+   `
     
 }
