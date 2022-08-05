@@ -38,5 +38,6 @@ function createSlideShow(images) {
   //make images dynamic in template literal
   document.getElementById("slideshow").innerHTML = ` 
   <div class="slide" style="background-image: url('${images[0]}')"></div> 
+  <div class="slide" style="background-image: url('${images[1]}')"></div> 
     `;
 }
