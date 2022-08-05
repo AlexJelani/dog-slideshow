@@ -15,18 +15,28 @@ function createBreedList(breedList) {
   document.getElementById("breed").innerHTML = `
    <select onchange="loadByBreed(this.value)">
             <option>Choose a breed</option>
-           ${Object.keys(breedList).map(function (breed) {
-            return `<option>${breed}</option>`
-           }).join('')}
+           ${Object.keys(breedList)
+             .map(function (breed) {
+               return `<option>${breed}</option>`;
+             })
+             .join("")}
 
         </select>
    `;
 }
 //made loadByBreed function to populate text with breed information
 async function loadByBreed(breed) {
-   if(breed != "Choose a dog breed"){
-      const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
-      const data = await response.json()
-      console.log(data)
-   }
+  if (breed != "Choose a dog breed") {
+    const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`);
+    const data = await response.json();
+    console.log(data);
+    createSlideShow(data.message);
+  }
+}
+//create slideshow function to get pictures from data.message
+function createSlideShow(images) {
+  //make images dynamic in template literal
+  document.getElementById("slideshow").innerHTML = ` 
+  <div class="slide" style="background-image: url('${images[0]}')"></div> 
+    `;
 }
