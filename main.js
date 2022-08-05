@@ -23,6 +23,10 @@ function createBreedList(breedList) {
    `;
 }
 //made loadByBreed function to populate text with breed information
-function loadByBreed(breed) {
-   alert(breed);
+async function loadByBreed(breed) {
+   if(breed != "Choose a dog breed"){
+      const response = await fetch(`https://dog.ceo/api/breed/${breed}/images`)
+      const data = await response.json()
+      console.log(data)
+   }
 }
